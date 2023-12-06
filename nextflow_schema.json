@@ -4,22 +4,35 @@
     "title": "Rename_folders pipeline parameters",
     "description": "Pipeline for renaming folders for oxford Nanopore sequencing",
     "type": "object",
-    "properties": {
-        "dir": {
-            "type": "string",
-            "default": "path",
-            "description": "Input directory with fastq_pass and pod5_pass directories",
-            "format": "directory-path"
-        },
-        "csv": {
-            "type": "string",
-            "default": "samplelist.csv",
-            "description": "headerless csv file with barcode name and sample names",
-            "format": "file-path"
+    "definitions": {
+        "inputs": {
+            "title": "Inputs",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "csv": {
+                    "type": "string",
+                    "default": "samplelist.csv",
+                    "description": "headerless csv file with barcode name and sample names",
+                    "format": "file-path"
+                },
+                "dir": {
+                    "type": "string",
+                    "default": "path",
+                    "description": "Input directory with fastq_pass and pod5_pass directories",
+                    "format": "directory-path"
+                }
+            },
+            "required": [
+                "csv",
+                "dir"
+            ]
         }
     },
-    "required": [
-        "dir",
-        "csv"
+    "allOf": [
+        {
+            "$ref": "#/definitions/inputs"
+        }
     ]
 }
