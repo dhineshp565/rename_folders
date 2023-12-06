@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/Rename_folders/master/nextflow_schema.json",
+    "title": "Rename_folders pipeline parameters",
+    "description": "Pipeline for renaming folders for oxford Nanopore sequencing",
+    "type": "object",
+    "properties": {
+        "dir": {
+            "type": "string",
+            "default": "path",
+            "description": "Input directory with fastq_pass and pod5_pass directories",
+            "format": "directory-path"
+        },
+        "csv": {
+            "type": "string",
+            "default": "samplelist.csv",
+            "description": "headerless csv file with barcode name and sample names",
+            "format": "file-path"
+        }
+    },
+    "required": [
+        "dir",
+        "csv"
+    ]
+}
