@@ -3,7 +3,7 @@ nextflow.enable.dsl=2
 
 process rename_folders {
     input:
-    path (dir)
+    path(dir)
     path(csvfile)
    
     script:
